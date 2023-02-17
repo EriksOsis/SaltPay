@@ -1,0 +1,13 @@
+.heading-container {
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.6rem 4rem;
+    margin: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    z-index: 1;
+}
+
+.heading {
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin: 0;
+}

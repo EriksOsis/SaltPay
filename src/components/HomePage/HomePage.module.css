@@ -1,0 +1,17 @@
+.homepage-container {
+    margin: 3rem 4rem;
+    height: 100%;
+}
+
+.top-menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.cards-container {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 4rem;
+}

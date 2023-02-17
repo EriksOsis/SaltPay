@@ -1,0 +1,28 @@
+.search {
+    background-color: hsl(0, 0%, 100%);
+    padding: 1.2rem 1.6rem;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: row;
+    gap: 1.4rem;
+    align-items: center;
+    color: hsl(0, 0%, 52%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    width: 30vw;
+    min-width: 15rem;
+    height: 100%;
+}
+
+.search-icon {
+    font-size: 1.4rem;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    font-weight: 300;
+    font-size: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+    color: hsl(0, 0%, 52%);
+    background-color: hsl(0, 0%, 100%);
+}

@@ -3,6 +3,9 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: hsl(200, 15%, 8%);
+  font-size: 62.5%;
+  height: 100vh;
 }
 
 code {
