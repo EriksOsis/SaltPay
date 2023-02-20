@@ -4,9 +4,15 @@ import {FilterBar} from "../UI/Filter/FilterBar";
 import {CountryCard} from "../UI/CountryCard/CountryCard";
 import {useEffect, useState} from "react";
 
-export function Homepage(): JSX.Element {
-    const [countries, setCountries] = useState([]);
 
+interface Country {
+    name: { official: string };
+}
+
+export function Homepage(): JSX.Element {
+    const [countries, setCountries] = useState<Country[]>([]);
+
+    //all
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
             .then(response => {
@@ -21,6 +27,7 @@ export function Homepage(): JSX.Element {
     }, []);
 
     console.log(countries);
+
     return (
         <section className={classes['homepage-container']}>
             <div className={classes['top-menu']}>
@@ -28,7 +35,7 @@ export function Homepage(): JSX.Element {
                 <FilterBar/>
             </div>
             <div className={classes['cards-container']}>
-                {countries.map(country => <CountryCard country={country}/>)}
+                {countries.map(country => <CountryCard key={country.name.official} country={country}/>)}
             </div>
         </section>
     )

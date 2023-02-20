@@ -7,7 +7,11 @@ export function FilterBar() {
         <div className={classes['filter-bar']}>
             <select className={classes['filter-select']}>
                 <option value="Filter by Region" disabled selected>Filter by Region</option>
-                <option></option>
+                <option>Africa</option>
+                <option>America</option>
+                <option>Asia</option>
+                <option>Europe</option>
+                <option>Oceania</option>
             </select>
             {/*<IonIcon icon={chevronDownOutline}></IonIcon>*/}
         </div>

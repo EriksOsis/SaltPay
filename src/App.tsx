@@ -1,20 +1,29 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './App.module.css';
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import {Heading} from "./components/Heading/Heading";
 import {Homepage} from "./components/HomePage/Homepage";
+import {DetailsPage} from "./components/DetailsPage/DetailsPage";
 
 
 function App() {
-    return (
-        <Switch>
-            <Route path={'/'} exact>
-                <div className={classes.App}>
-                    <Heading/>
-                    <Homepage/>
-                </div>
-            </Route>
-        </Switch>
+    return (<div>
+            <Heading/>
+            <Switch>
+                <Route path={'/'} exact>
+                    <Redirect to={'/home'}/>
+                </Route>
+                <Route path={'/home'}>
+                    <div className={classes.App}>
+
+                        <Homepage/>
+                    </div>
+                </Route>
+                <Route path={'/details/:country'}>
+                    <DetailsPage/>
+                </Route>
+            </Switch>
+        </div>
     );
 }
 
