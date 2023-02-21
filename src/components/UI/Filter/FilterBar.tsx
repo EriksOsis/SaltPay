@@ -18,7 +18,7 @@ export function FilterBar({ setCountries, getAllCountries }: FilterBarProps) {
 
     useEffect(() => {
         if (region !== "") {
-            fetch(`https://restcountries.com/v3.1/region/${region}`)
+            fetch(`https://restcountries.com/v2/region/${region}`)
                 .then(response => {
                     return response.json();
                 })

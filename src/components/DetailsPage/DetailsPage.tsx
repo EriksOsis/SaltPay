@@ -5,23 +5,16 @@ import {arrowBackOutline} from "ionicons/icons";
 import {IonIcon} from "@ionic/react";
 
 interface CountryDetails {
-    name: {
-        common: string;
-        official: string;
-        nativeName: {
-            jpn: {
-                official: string;
-            }
-        }
-    };
+    name: string;
     capital: string[];
-    languages: { [key: string]: string };
+    languages: [{ name: string }];
     flags: { [key: string]: string };
     population: number;
-    currencies: { [key: string]: { name: string, symbol: string } };
+    currencies: [{ name: string }];
     region: string;
     subregion: string;
-    tld: string[];
+    topLevelDomain: string[];
+    borders: string[];
 }
 
 interface RouteParams {
@@ -36,7 +29,7 @@ export function DetailsPage() {
     //all
     useEffect(() => {
         if (params.country) {
-            fetch(`https://restcountries.com/v3.1/name/${params.country}`)
+            fetch(`https://restcountries.com/v2/name/${params.country}`)
                 .then(response => {
                     return response.json();
                 })
@@ -63,31 +56,32 @@ export function DetailsPage() {
             <div className={classes['content']}>
                 <div className={classes['flag-container']}>
                     <img className={classes.flag} src={countryDetails?.[0].flags.png}
-                         alt={`${countryDetails?.[0].name.common} flag`}/>
+                         alt={`${countryDetails?.[0].name} flag`}/>
                 </div>
                 <div className={classes['country-info-container']}>
-                    <h1 className={classes.name}>{countryDetails?.[0].name.official}</h1>
+                    <h1 className={classes.name}>{countryDetails?.[0].name}</h1>
                     <div className={classes['country-info']}>
                         <div>
                             <p><span className={classes.bold}>Population:</span> {countryDetails?.[0].population}</p>
                             <p><span className={classes.bold}>Region:</span> {countryDetails?.[0].region}</p>
                             <p><span className={classes.bold}>Region:</span> {countryDetails?.[0].subregion}</p>
-                            <p><span className={classes.bold}>Capital:</span> {countryDetails?.[0].capital.join(", ")}
+                            <p><span className={classes.bold}>Capital:</span> {countryDetails?.[0].capital}
                             </p>
                         </div>
                         <div>
                             <p><span
-                                className={classes.bold}>Top Level Domain:</span> {countryDetails?.[0].tld.join(", ")}
+                                className={classes.bold}>Top Level Domain:</span> {countryDetails?.[0].topLevelDomain.join(", ")}
                             </p>
                             <p><span
-                                className={classes.bold}>Currencies:</span> {countryDetails?.[0].currencies.JPY.name}
+                                className={classes.bold}>Currencies:</span> {countryDetails?.[0].currencies[0].name}
                             </p>
-                            <p><span className={classes.bold}>Languages:</span> {countryDetails?.[0].languages.jpn}</p>
+                            <p><span className={classes.bold}>Languages:</span> {countryDetails?.[0].languages[0].name}</p>
                         </div>
                     </div>
                     <div className={classes['border-countries']}>
                         <p>Border Countries: </p>
-                        <button>France</button>
+                        {countryDetails?.[0].borders && countryDetails?.[0].borders.map(neighbor => <button>{neighbor}</button>)}
+
                     </div>
                 </div>
             </div>

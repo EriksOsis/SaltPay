@@ -6,7 +6,7 @@ import React, {useEffect, useState} from "react";
 
 
 export interface Country {
-    name: { official: string };
+    name: string ;
 }
 
 export function Homepage(): JSX.Element {
@@ -14,7 +14,7 @@ export function Homepage(): JSX.Element {
     const [searchedCountry, setSearchedCountry] = useState('');
 
     function getAllCountries() {
-        fetch('https://restcountries.com/v3.1/all')
+        fetch('https://restcountries.com/v2/all')
             .then(response => {
                 return response.json();
             })
@@ -37,8 +37,8 @@ export function Homepage(): JSX.Element {
                 <FilterBar getAllCountries={getAllCountries} setCountries={setCountries}/>
             </div>
             <div className={classes['cards-container']}>
-                {countries.map(country => country.name.official.includes(searchedCountry) &&
-                    <CountryCard key={country.name.official} country={country}/>
+                {countries.map(country => country.name.includes(searchedCountry) &&
+                    <CountryCard key={country.name} country={country}/>
                     )}
             </div>
         </section>
