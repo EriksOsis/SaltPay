@@ -11,6 +11,7 @@ export interface Country {
 
 export function Homepage(): JSX.Element {
     const [countries, setCountries] = useState<Country[]>([]);
+    const [searchedCountry, setSearchedCountry] = useState('');
 
     function getAllCountries() {
         fetch('https://restcountries.com/v3.1/all')
@@ -27,16 +28,18 @@ export function Homepage(): JSX.Element {
 
     useEffect(() => {
         getAllCountries();
-    }, []);
+    }, [searchedCountry]);
 
     return (
         <section className={classes['homepage-container']}>
             <div className={classes['top-menu']}>
-                <SearchBar/>
+                <SearchBar setSearchedCountry={setSearchedCountry}/>
                 <FilterBar getAllCountries={getAllCountries} setCountries={setCountries}/>
             </div>
             <div className={classes['cards-container']}>
-                {countries.map(country => <CountryCard key={country.name.official} country={country}/>)}
+                {countries.map(country => country.name.official.includes(searchedCountry) &&
+                    <CountryCard key={country.name.official} country={country}/>
+                    )}
             </div>
         </section>
     )
