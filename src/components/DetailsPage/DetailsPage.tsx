@@ -66,15 +66,24 @@ export function DetailsPage() {
                          alt={`${countryDetails?.[0].name.common} flag`}/>
                 </div>
                 <div className={classes['country-info-container']}>
-                    <h1 className={classes.name}>{countryDetails?.[0].name.nativeName.jpn.official}</h1>
+                    <h1 className={classes.name}>{countryDetails?.[0].name.official}</h1>
                     <div className={classes['country-info']}>
-                        <p><span className={classes.bold}>Population:</span> {countryDetails?.[0].population}</p>
-                        <p><span className={classes.bold}>Region:</span> {countryDetails?.[0].region}</p>
-                        <p><span className={classes.bold}>Region:</span> {countryDetails?.[0].subregion}</p>
-                        <p><span className={classes.bold}>Capital:</span> {countryDetails?.[0].capital.join(", ")}</p>
-                        <p><span className={classes.bold}>Top Level Domain:</span> {countryDetails?.[0].tld.join(", ")}</p>
-                        <p><span className={classes.bold}>Currencies:</span> {countryDetails?.[0].currencies.JPY.name}</p>
-                        <p><span className={classes.bold}>Languages:</span> {countryDetails?.[0].languages.jpn}</p>
+                        <div>
+                            <p><span className={classes.bold}>Population:</span> {countryDetails?.[0].population}</p>
+                            <p><span className={classes.bold}>Region:</span> {countryDetails?.[0].region}</p>
+                            <p><span className={classes.bold}>Region:</span> {countryDetails?.[0].subregion}</p>
+                            <p><span className={classes.bold}>Capital:</span> {countryDetails?.[0].capital.join(", ")}
+                            </p>
+                        </div>
+                        <div>
+                            <p><span
+                                className={classes.bold}>Top Level Domain:</span> {countryDetails?.[0].tld.join(", ")}
+                            </p>
+                            <p><span
+                                className={classes.bold}>Currencies:</span> {countryDetails?.[0].currencies.JPY.name}
+                            </p>
+                            <p><span className={classes.bold}>Languages:</span> {countryDetails?.[0].languages.jpn}</p>
+                        </div>
                     </div>
                     <div className={classes['border-countries']}>
                         <p>Border Countries: </p>
