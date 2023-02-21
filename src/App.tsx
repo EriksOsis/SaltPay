@@ -7,15 +7,15 @@ import {DetailsPage} from "./components/DetailsPage/DetailsPage";
 
 
 function App() {
-    return (<div>
+    return (
+        <div>
             <Heading/>
             <Switch>
                 <Route path={'/'} exact>
                     <Redirect to={'/home'}/>
                 </Route>
                 <Route path={'/home'}>
-                    <div className={classes.App}>
-
+                    <div>
                         <Homepage/>
                     </div>
                 </Route>

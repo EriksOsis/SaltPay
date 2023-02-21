@@ -1,6 +1,6 @@
 .search {
     background-color: hsl(0, 0%, 100%);
-    padding: 1.2rem 1.6rem;
+    padding: 1.6rem 2rem;
     border-radius: 9px;
     display: flex;
     flex-direction: row;
@@ -14,15 +14,23 @@
 }
 
 .search-icon {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
 }
 
 .search-input {
     border: none;
     outline: none;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-family: 'Nunito Sans', sans-serif;
     color: hsl(0, 0%, 52%);
     background-color: hsl(0, 0%, 100%);
+    width: 100%;
+}
+
+@media (max-width: 29.37em) {
+    .search {
+        width: 90%;
+        min-width: 90%;
+    }
 }

@@ -1,14 +1,43 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   font-family: 'Nunito Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsl(200, 15%, 8%);
-  font-size: 62.5%;
   height: 100vh;
+  width: 100vw;
+  background-color: hsl(0, 0%, 98%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (max-width: 84.625em) {
+  html {
+    font-size: 57%;
+  }
+}
+
+@media (max-width: 67em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 51.87em) {
+  html {
+    font-size: 47.5%;
+  }
+}
+
+@media (max-width: 46.56em) {
+  html {
+    font-size: 60%;
+  }
 }

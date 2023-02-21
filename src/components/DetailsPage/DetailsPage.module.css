@@ -1,7 +1,7 @@
 .details-page {
-    margin: 5rem 6rem;
-    width: 100%;
+    padding: 8rem 10rem;
     height: 100%;
+    /*width: 95%;*/
 }
 
 .back-btn {
@@ -9,15 +9,15 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 7.5rem;
-    padding: .5rem 1.25rem;
+    width: 11rem;
+    padding: 1rem 1.6rem;
     color: hsl(200, 15%, 8%);
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 4px;
     text-decoration: none;
-    gap: .5rem;
-    margin-bottom: 5rem;
+    gap: 1rem;
+    margin-bottom: 8rem;
     transition: .2s;
 }
 
@@ -31,40 +31,37 @@
 
 .content {
     display: grid;
-    grid-template-columns: 40vw 40vw;
+    grid-template-columns: 42.5vw 42.5vw;
     gap: 8rem;
-
-}
-
-.flag-container {
-    width: 100%;
-    height: 100%;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .flag {
     width: 100%;
+    height: auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .country-info-container {
-    margin: 2rem 0;
+    margin: 2.8rem 0 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
 }
 
 .name {
-    font-size: 1.6rem;
-    margin: 0 0 2rem;
+    font-size: 3rem;
+    margin: 0;
 }
 
 .country-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;
-    font-size: 1rem;
-    height: 9rem;
-    line-height: 2rem;
+    font-size: 1.6rem;
+    line-height: 3rem;
 }
 
-.country-info p{
+.country-info p {
     margin: 0;
 }
 
@@ -76,30 +73,104 @@
 .border-countries {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: left;
-    gap: 1rem;
-    font-size: 1rem;
+    align-items: start;
+    justify-content: start;
+    gap: 1.4rem;
+    font-size: 1.6rem;
 }
 
 .border-country-btns {
     display: flex;
     flex-direction: row;
-    gap: .5rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    width: 60%;
+    width: 75%;
 }
 
 .border-country-btns a {
-    width: 6rem;
+    width: 10rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     text-decoration: none;
-    padding: .3rem .5rem;
+    padding: .7rem 1rem;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     border-radius: 3px;
     color: hsl(200, 15%, 8%);
+}
+
+@media (max-width: 75.625em) {
+    .content {
+        grid-template-columns: 40vw 40vw;
+    }
+}
+
+@media (max-width: 62.33em) {
+    .back-btn {
+        margin-bottom: 4rem;
+    }
+
+    .content {
+        grid-template-columns: 37.5vw 37.5vw;
+    }
+
+    .name {
+        font-size: 2.4rem;
+    }
+
+    .border-country-btns a {
+        width: 8rem;
+        padding: .45rem .7rem;
+    }
+}
+
+@media (max-width: 46.375em) {
+    .details-page {
+        padding: 0;
+        margin: 3rem 4rem;
+    }
+
+    .content {
+        width: 100%;
+        place-items: start;
+        grid-template-columns: 1fr;
+    }
+
+    .country-info-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .country-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 2.4rem;
+        line-height: 5rem;
+        gap: 8rem;
+    }
+
+    .flag {
+        width: 100%;
+        height: auto;
+    }
+
+    .name {
+        font-size: 4rem;
+    }
+
+    .border-countries {
+        font-size: 2.6rem;
+        flex-direction: column;
+    }
+
+    .border-country-btns {
+        width: 100%;
+    }
+
+    .border-country-btns a {
+        width: auto;
+        padding: 1.2rem 1.5rem;
+    }
 }

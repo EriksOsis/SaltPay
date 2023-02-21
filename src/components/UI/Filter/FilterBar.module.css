@@ -1,24 +1,38 @@
 .filter-bar {
     background-color: hsl(0, 0%, 100%);
-    padding: 1.2rem 1.6rem;
+    padding: 1.6rem 2rem;
     border-radius: 9px;
     display: flex;
     flex-direction: row;
-    gap: 1.4rem;
+    gap: 1.8rem;
     align-items: center;
     color: hsl(0, 0%, 52%);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    width: 10vw;
+    width: 15rem;
     height: 100%;
 }
 
 .filter-select {
     border: #fff 1px solid;
-    outline: none;
+    outline: #fff 1px solid;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-family: 'Nunito Sans', sans-serif;
     background-color: hsl(0, 0%, 100%);
     color: hsl(200, 15%, 8%);
     width: 100%;
+    box-shadow: none;
+}
+
+
+.filter-select option {
+    font-size: 1.4rem;
+    border: none;
+    margin-top: .2rem;
+}
+
+@media (max-width: 29.37em) {
+    .filter-bar {
+        width: 50%;
+    }
 }

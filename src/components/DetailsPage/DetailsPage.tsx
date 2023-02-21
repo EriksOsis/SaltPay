@@ -68,10 +68,8 @@ export function DetailsPage() {
             <Link to={'/home'} className={classes['back-btn']}>
                 <IonIcon icon={arrowBackOutline} className={classes['search-icon']}></IonIcon>Back</Link>
             <div className={classes['content']}>
-                <div className={classes['flag-container']}>
-                    <img className={classes.flag} src={countryDetails?.[0].flags.png}
-                         alt={`${countryDetails?.[0].name} flag`}/>
-                </div>
+                <img className={classes.flag} src={countryDetails?.[0].flags.png}
+                     alt={`${countryDetails?.[0].name} flag`}/>
                 <div className={classes['country-info-container']}>
                     <h1 className={classes.name}>{countryDetails?.[0].name}</h1>
                     <div className={classes['country-info']}>
@@ -97,7 +95,8 @@ export function DetailsPage() {
                         <p className={classes.bold}>Border Countries:</p>
                         <div className={classes['border-country-btns']}>
                             {countryDetails?.[0].borders && countryDetails?.[0].borders.map(neighbor => allCountries?.map(country =>
-                                country.alpha3Code === neighbor && <Link key={country.name} to={`/details/${country.name}`}>{country.name}</Link>))}
+                                country.alpha3Code === neighbor &&
+                                <Link key={country.name} to={`/details/${country.name}`}>{country.name}</Link>))}
                         </div>
                     </div>
                 </div>
