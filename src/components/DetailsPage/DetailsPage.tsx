@@ -42,9 +42,6 @@ export function DetailsPage() {
         }
     }, [params.country]);
 
-    console.log(countryDetails?.[0]);
-
-
     if (!countryDetails) {
         return <div>Loading...</div>;
     }
