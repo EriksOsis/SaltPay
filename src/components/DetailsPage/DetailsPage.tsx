@@ -21,10 +21,16 @@ interface RouteParams {
     country: string;
 }
 
+interface AllCountries {
+    alpha3Code: string;
+    name: string;
+}
+
 export function DetailsPage() {
     const params = useParams<RouteParams>();//params.country
 
     const [countryDetails, setCountryDetails] = useState<CountryDetails[]>();
+    const [allCountries, setAllCountries] = useState<AllCountries[]>();
 
     //all
     useEffect(() => {
@@ -35,6 +41,17 @@ export function DetailsPage() {
                 })
                 .then(data => {
                     setCountryDetails(data);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+            fetch(`https://restcountries.com/v2/all`)
+                .then(response => {
+                    return response.json();
+                })
+                .then(data => {
+                    setAllCountries(data);
                 })
                 .catch(error => {
                     console.error(error);
@@ -72,13 +89,16 @@ export function DetailsPage() {
                             <p><span
                                 className={classes.bold}>Currencies:</span> {countryDetails?.[0].currencies[0].name}
                             </p>
-                            <p><span className={classes.bold}>Languages:</span> {countryDetails?.[0].languages[0].name}</p>
+                            <p><span className={classes.bold}>Languages:</span> {countryDetails?.[0].languages[0].name}
+                            </p>
                         </div>
                     </div>
                     <div className={classes['border-countries']}>
-                        <p>Border Countries: </p>
-                        {countryDetails?.[0].borders && countryDetails?.[0].borders.map(neighbor => <button>{neighbor}</button>)}
-
+                        <p className={classes.bold}>Border Countries:</p>
+                        <div className={classes['border-country-btns']}>
+                            {countryDetails?.[0].borders && countryDetails?.[0].borders.map(neighbor => allCountries?.map(country =>
+                                country.alpha3Code === neighbor && <Link key={country.name} to={`/details/${country.name}`}>{country.name}</Link>))}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -70,4 +70,36 @@
 
 .bold {
     font-weight: 800;
+    margin: 0;
+}
+
+.border-countries {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+.border-country-btns {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.border-country-btns a {
+    width: 6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-decoration: none;
+    padding: .3rem .5rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 3px;
+    color: hsl(200, 15%, 8%);
 }
